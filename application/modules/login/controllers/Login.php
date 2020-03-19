@@ -30,7 +30,7 @@ class Login extends MX_Controller{
 
 			$this->session->set_userdata($data_session);
 
-			redirect(base_url("users"));
+			redirect(base_url("main/dashboard"));
 			$this->session->set_flashdata('success', 'Anda Berhasil Login');
 
 		}else{
