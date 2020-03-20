@@ -18,4 +18,7 @@ class M_login extends CI_Model{
         return $this->db->insert('users', $data);
     }
 
+    function cek_session(){
+        return $this->session->userdata('email');
+    }
 }

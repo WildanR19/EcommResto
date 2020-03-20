@@ -7,6 +7,7 @@ class Login extends MX_Controller{
 		parent::__construct();		
 		$this->load->model('m_login');
 		$this->load->library(array('form_validation','session'));
+		$this->load->helper('url');
 	}
 
 	function index(){
@@ -22,13 +23,7 @@ class Login extends MX_Controller{
 			);
 		$cek = $this->m_login->cek_login("users",$where)->num_rows();
 		if($cek > 0){
-
-			$data_session = array(
-				'nama' => $email,
-				'status' => "login"
-				);
-
-			$this->session->set_userdata($data_session);
+			$this->session->set_userdata('email', $email);
 
 			redirect(base_url("main/dashboard"));
 			$this->session->set_flashdata('success', 'Anda Berhasil Login');
@@ -66,4 +61,11 @@ class Login extends MX_Controller{
 		$this->session->sess_destroy();
 		redirect(base_url('login'));
 	}
+
+	public function cekLogin(){ 
+		if(isset($_SESSION['email'])) { 
+		  return true; 
+		} 
+	  }
+		
 }
