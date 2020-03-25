@@ -19,6 +19,6 @@ class M_login extends CI_Model{
     }
 
     function cek_session(){
-        return $this->session->userdata('email');
+        return $this->session->userdata('username');
     }
 }

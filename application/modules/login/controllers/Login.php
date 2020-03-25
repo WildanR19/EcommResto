@@ -11,21 +11,27 @@ class Login extends MX_Controller{
 	}
 
 	function index(){
-		$this->load->view('v_login');
+		if($this->m_login->cek_session())
+        {
+            redirect(base_url('admin/dashboard'));
+        }else{
+            //jika session belum terdaftar, maka redirect ke halaman login
+            $this->load->view("v_login");
+        }
 	}
 
 	function aksi_login(){
-		$email = $this->input->post('email');
+		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$where = array(
-			'email' => $email,
+			'username' => $username,
 			'password' => md5($password)
 			);
 		$cek = $this->m_login->cek_login("users",$where)->num_rows();
 		if($cek > 0){
-			$this->session->set_userdata('email', $email);
+			$this->session->set_userdata('username', $username);
 
-			redirect(base_url("main/dashboard"));
+			redirect(base_url("admin/dashboard"));
 			$this->session->set_flashdata('success', 'Anda Berhasil Login');
 
 		}else{
@@ -63,7 +69,7 @@ class Login extends MX_Controller{
 	}
 
 	public function cekLogin(){ 
-		if(isset($_SESSION['email'])) { 
+		if(isset($_SESSION['username'])) { 
 		  return true; 
 		} 
 	  }
