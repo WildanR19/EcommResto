@@ -51,7 +51,7 @@ $this->load->view("admin/_partials/head.php") ?>
 											<?php echo $product->price ?>
 										</td>
 										<td>
-											<img src="<?php echo base_url('upload/product/'.$product->image) ?>" width="64" />
+											<img src="<?php echo base_url('../gambar/'.$product->image) ?>" width="64" />
 										</td>
 										<td class="small">
 											<?php echo substr($product->description, 0, 120) ?>...</td>
