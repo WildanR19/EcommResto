@@ -12,14 +12,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   
   <!-- Font Awesome -->
-	<link rel="stylesheet" href="<?php echo base_url('../assets/fontawesome-free/css/all.min.css') ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/fontawesome-free/css/all.min.css') ?>">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- icheck bootstrap -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <!-- Theme style -->
-	<link rel="stylesheet" href="<?php echo base_url('../assets/css/adminlte.min.css'); ?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/adminlte.min.css'); ?>">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -116,6 +116,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Bootstrap 4 -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <!-- AdminLTE App -->
-<script src="<?php echo base_url('../assets/js/adminlte.min.js');?>"></script>
+<script src="<?php echo base_url('assets/js/adminlte.min.js');?>"></script>
 </body>
 </html>
