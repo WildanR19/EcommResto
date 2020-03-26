@@ -1,20 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<?php $this->load->view("admin/_partials/head.php") ?>
-</head>
-
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+$this->load->view("admin/_partials/head.php") ?>
 <body id="page-top">
 
-	<?php $this->load->view("admin/_partials/navbar.php") ?>
-	<div id="wrapper">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
 
-		<?php $this->load->view("admin/_partials/sidebar.php") ?>
+    <!-- Sidebar -->
+    <?php $this->load->view("admin/_partials/sidebar.php") ?>
+    <!-- End of Sidebar -->
 
-		<div id="content-wrapper">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column" >
 
-			<div class="container-fluid">
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <?php $this->load->view("admin/_partials/topbar.php") ?>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
 
 				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
@@ -28,7 +34,7 @@
 				<div class="card mb-3">
 					<div class="card-header">
 
-						<a href="<?php echo site_url('admin/products/') ?>"><i class="fas fa-arrow-left"></i>
+						<a href="<?php echo base_url('admin/products/') ?>"><i class="fas fa-arrow-left"></i>
 							Back</a>
 					</div>
 					<div class="card-body">
@@ -94,14 +100,29 @@
 				<?php $this->load->view("admin/_partials/footer.php") ?>
 
 			</div>
-			<!-- /.content-wrapper -->
+        <!-- /.container-fluid -->
 
-		</div>
-		<!-- /#wrapper -->
+      </div>
+      <!-- End of Main Content -->
 
-		<?php $this->load->view("admin/_partials/scrolltop.php") ?>
+      <!-- Footer -->
+      <?php $this->load->view("admin/_partials/footer.php") ?>
+      <!-- End of Footer -->
 
-		<?php $this->load->view("admin/_partials/js.php") ?>
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <?php $this->load->view("admin/_partials/scrolltop.php") ?>
+
+  <!-- Logout Modal-->
+  <?php $this->load->view("admin/_partials/modal.php") ?>
+
+  <!-- Javascript-->
+  <?php $this->load->view("admin/_partials/js.php") ?>
 
 </body>
 

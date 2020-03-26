@@ -42,13 +42,7 @@
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('admin/products/add'); ?>">
-        <i class="fas fa-fw fa-plus-circle"></i>
-          <span>Add Product</span></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('admin/products/list'); ?>">
+        <a class="nav-link" href="<?php echo base_url('admin/products'); ?>">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span></a>
       </li>

@@ -2,7 +2,8 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Products extends MX_Controller{
+class Products extends MX_Controller
+{
     public function __construct()
     {
         parent::__construct();
@@ -12,7 +13,7 @@ class Products extends MX_Controller{
 
     public function index()
     {
-        $data["tbl_produk"] = $this->m_products->getAll();
+        $data["products"] = $this->m_products->getAll();
         $this->load->view("admin/products/list", $data);
     }
 
@@ -54,7 +55,7 @@ class Products extends MX_Controller{
         if (!isset($id)) show_404();
         
         if ($this->m_products->delete($id)) {
-            redirect(site_url('admin/products'));
+            redirect(base_url('admin/products'));
         }
     }
 }

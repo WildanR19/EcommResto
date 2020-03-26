@@ -10,7 +10,7 @@ $this->load->view("admin/_partials/head.php") ?>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content-wrapper" class="d-flex flex-column" >
 
       <!-- Main Content -->
       <div id="content">
@@ -21,86 +21,71 @@ $this->load->view("admin/_partials/head.php") ?>
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+			<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
 
-		  	<div class="container-fluid">
+			<?php if ($this->session->flashdata('success')): ?>
+			<div class="alert alert-success" role="alert">
+				<?php echo $this->session->flashdata('success'); ?>
+			</div>
+			<?php endif; ?>
 
-				<?php $this->load->view("admin/_partials/breadcrumb.php") ?>
-
-				<?php if ($this->session->flashdata('success')): ?>
-				<div class="alert alert-success" role="alert">
-					<?php echo $this->session->flashdata('success'); ?>
+			<div class="card mb-3">
+				<div class="card-header">
+					<a href="<?php echo base_url('admin/products/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 				</div>
-				<?php endif; ?>
+				<div class="card-body">
 
-				<div class="card mb-3">
-					<div class="card-header">
-						<a href="<?php echo base_url('admin/products/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
-					</div>
-					<div class="card-body">
-
-						<form action="<?php echo base_url('admin/products/add') ?>" method="post" enctype="multipart/form-data" >
-							<div class="form-group">
-								<label for="name">Name*</label>
-								<input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-								type="text" name="nama" placeholder="Product name" />
-								<div class="invalid-feedback">
-									<?php echo form_error('nama') ?>
-								</div>
+					<form action="<?php echo base_url('admin/products/add') ?>" method="post" enctype="multipart/form-data" >
+						<div class="form-group">
+							<label for="name">Name*</label>
+							<input class="form-control <?php echo form_error('name') ? 'is-invalid':'' ?>"
+							 type="text" name="name" placeholder="Product name" />
+							<div class="invalid-feedback">
+								<?php echo form_error('name') ?>
 							</div>
+						</div>
 
-							<div class="form-group">
-								<label for="price">Price*</label>
-								<input class="form-control <?php echo form_error('harga') ? 'is-invalid':'' ?>"
-								type="number" name="harga" min="0" placeholder="Product price" />
-								<div class="invalid-feedback">
-									<?php echo form_error('harga') ?>
-								</div>
+						<div class="form-group">
+							<label for="price">Price*</label>
+							<input class="form-control <?php echo form_error('price') ? 'is-invalid':'' ?>"
+							 type="number" name="price" min="0" placeholder="Product price" />
+							<div class="invalid-feedback">
+								<?php echo form_error('price') ?>
 							</div>
+						</div>
 
 
-							<div class="form-group">
-								<label for="name">Picture</label>
-								<input class="form-control-file <?php echo form_error('price') ? 'is-invalid':'' ?>"
-								type="file" name="gambar" />
-								<div class="invalid-feedback">
-									<?php echo form_error('gambar') ?>
-								</div>
+						<div class="form-group">
+							<label for="name">Photo</label>
+							<input class="form-control-file <?php echo form_error('price') ? 'is-invalid':'' ?>"
+							 type="file" name="image" />
+							<div class="invalid-feedback">
+								<?php echo form_error('image') ?>
 							</div>
+						</div>
 
-							<div class="form-group">
-								<label for="name">Description*</label>
-								<textarea class="form-control <?php echo form_error('deskripsi') ? 'is-invalid':'' ?>"
-								name="deskripsi" placeholder="Product description..."></textarea>
-								<div class="invalid-feedback">
-									<?php echo form_error('deskripsi') ?>
-								</div>
+						<div class="form-group">
+							<label for="name">Description*</label>
+							<textarea class="form-control <?php echo form_error('description') ? 'is-invalid':'' ?>"
+							 name="description" placeholder="Product description..."></textarea>
+							<div class="invalid-feedback">
+								<?php echo form_error('description') ?>
 							</div>
-							
-							<div class="form-group">
-								<label for="name">Category*</label>
-								<input class="form-control <?php echo form_error('kategori') ? 'is-invalid':'' ?>"
-								name="kategori" placeholder="Product Category"/>
-								<div class="invalid-feedback">
-									<?php echo form_error('kategori') ?>
-								</div>
-							</div>
+						</div>
 
-							<input class="btn btn-success" type="submit" name="btn" value="Save" />
-						</form>
-
-					</div>
-
-					<div class="card-footer small text-muted">
-						* required fields
-					</div>
-
+						<input class="btn btn-success" type="submit" name="btn" value="Save" />
+					</form>
 
 				</div>
+
+				<div class="card-footer small text-muted">
+					* required fields
+				</div>
+
 
 			</div>
-
-        </div>
-        <!-- End Page Content -->
+		</div>
+        <!-- /.container-fluid -->
 
       </div>
       <!-- End of Main Content -->

@@ -1,18 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<?php $this->load->view("admin/_partials/head.php") ?>
-</head>
-
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+$this->load->view("admin/_partials/head.php") ?>
 <body id="page-top">
 
-	<?php $this->load->view("admin/_partials/navbar.php") ?>
-	<div id="wrapper">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
 
-		<?php $this->load->view("admin/_partials/sidebar.php") ?>
+    <!-- Sidebar -->
+    <?php $this->load->view("admin/_partials/sidebar.php") ?>
+    <!-- End of Sidebar -->
 
-		<div id="content-wrapper">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column" >
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <?php $this->load->view("admin/_partials/topbar.php") ?>
+        <!-- End of Topbar -->
 
 			<div class="container-fluid">
 
@@ -21,7 +26,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/products/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+						<a href="<?php echo base_url('admin/products/add') ?>"><i class="fas fa-plus"></i> Add New</a>
 					</div>
 					<div class="card-body">
 
@@ -51,9 +56,9 @@
 										<td class="small">
 											<?php echo substr($product->description, 0, 120) ?>...</td>
 										<td width="250">
-											<a href="<?php echo site_url('admin/products/edit/'.$product->product_id) ?>"
+											<a href="<?php echo base_url('admin/products/edit/'.$product->product_id) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/products/delete/'.$product->product_id) ?>')"
+											<a onclick="deleteConfirm('<?php echo base_url('admin/products/delete/'.$product->product_id) ?>')"
 											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
 									</tr>
@@ -68,21 +73,34 @@
 			</div>
 			<!-- /.container-fluid -->
 
-			<!-- Sticky Footer -->
-			<?php $this->load->view("admin/_partials/footer.php") ?>
+			</div>
+      <!-- End of Main Content -->
 
-		</div>
-		<!-- /.content-wrapper -->
+      <!-- Footer -->
+      <?php $this->load->view("admin/_partials/footer.php") ?>
+      <!-- End of Footer -->
 
-	</div>
-	<!-- /#wrapper -->
+    </div>
+    <!-- End of Content Wrapper -->
 
+  </div>
+  <!-- End of Page Wrapper -->
 
-	<?php $this->load->view("admin/_partials/scrolltop.php") ?>
-	<?php $this->load->view("admin/_partials/modal.php") ?>
+  <!-- Scroll to Top Button-->
+  <?php $this->load->view("admin/_partials/scrolltop.php") ?>
 
-	<?php $this->load->view("admin/_partials/js.php") ?>
+  <!-- Logout Modal-->
+  <?php $this->load->view("admin/_partials/modal.php") ?>
 
+  <!-- Javascript-->
+  <?php $this->load->view("admin/_partials/js.php") ?>
+
+  <script>
+function deleteConfirm(url){
+	$('#btn-delete').attr('href', url);
+	$('#deleteModal').modal();
+}
+</script>
 </body>
 
 </html>

@@ -33,7 +33,6 @@ class Login extends MX_Controller{
 
 			redirect(base_url("admin/dashboard"));
 			$this->session->set_flashdata('success', 'Anda Berhasil Login');
-
 		}else{
 			$this->session->set_flashdata('login_failed', '<div class="alert alert-danger">Username Atau Password salah!</div>');
 		   	redirect(base_url('login'));
@@ -72,6 +71,6 @@ class Login extends MX_Controller{
 		if(isset($_SESSION['username'])) { 
 		  return true; 
 		} 
-	  }
+	}
 		
 }
