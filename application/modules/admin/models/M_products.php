@@ -45,6 +45,8 @@ class M_products extends CI_Model
         $this->price = $post["price"];
         $this->image = $this->_uploadImage();
         $this->description = $post["description"];
+
+        helper_log("add", "Insert Product : ". $this->name);
         return $this->db->insert($this->_table, $this);
     }
 
@@ -60,11 +62,15 @@ class M_products extends CI_Model
             $this->image = $post["old_image"];
         }
         $this->description = $post["description"];
+
+        helper_log("update", "Update Product");
+
         return $this->db->update($this->_table, $this, array('product_id' => $post['id']));
     }
 
     public function delete($id)
     {
+        helper_log("delete", "Delete Product".$this->name);
         $this->_deleteImage($id);
         return $this->db->delete($this->_table, array("product_id" => $id));
     }

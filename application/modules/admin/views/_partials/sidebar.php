@@ -3,7 +3,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('admin/dashboard'); ?>">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+        <i class="fab fa-shopify"></i>
         </div>
         <div class="sidebar-brand-text mx-3">E-Commerce</div>
       </a>
@@ -44,11 +44,11 @@
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('admin/products'); ?>">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>Products</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url('admin/#'); ?>">
+        <a class="nav-link" href="<?php echo base_url('admin/log'); ?>">
           <i class="fas fa-fw fa-history"></i>
           <span>Activity Log</span>
         </a>

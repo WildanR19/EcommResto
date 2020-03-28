@@ -30,9 +30,10 @@ class Login extends MX_Controller{
 		$cek = $this->m_login->cek_login("users",$where)->num_rows();
 		if($cek > 0){
 			$this->session->set_userdata('username', $username);
-
+			helper_log("login", "Login");
 			redirect(base_url("admin/dashboard"));
 			$this->session->set_flashdata('success', 'Anda Berhasil Login');
+			
 		}else{
 			$this->session->set_flashdata('login_failed', '<div class="alert alert-danger">Username Atau Password salah!</div>');
 		   	redirect(base_url('login'));
@@ -63,6 +64,7 @@ class Login extends MX_Controller{
 	}
 
 	function logout(){
+		helper_log("logout", "Logout");
 		$this->session->sess_destroy();
 		redirect(base_url('login'));
 	}
