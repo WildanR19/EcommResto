@@ -74,5 +74,9 @@ class Login extends MX_Controller{
 		  return true; 
 		} 
 	}
+
+	function lupapw(){
+		$this->load->view("v_lupapw");
+	}
 		
 }

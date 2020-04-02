@@ -35,8 +35,9 @@ class Products extends MX_Controller
                 $product->save();
                 $this->session->set_flashdata('success', 'Berhasil disimpan');
             }
-            
-            $this->load->view("admin/products/new_form");
+
+            $data['category'] = $this->m_products->getCategory();
+            $this->load->view("admin/products/new_form", $data);
         }else{
             //jika session belum terdaftar, maka redirect ke halaman login
             redirect(base_url('login'));

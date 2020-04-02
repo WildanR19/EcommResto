@@ -83,6 +83,21 @@ $this->load->view("admin/_partials/head.php") ?>
 								</div>
 							</div>
 
+							<div class="form-group">
+								<label for="name">Kategori*</label>
+								<select class="form-control" name="category">
+									<?php
+										$arrmkn = array('Nasi','Sop','Sayuran','Minuman','Lainnya');
+										sort($arrmkn);
+										foreach ($arrmkn as $mkn) {						//print arary kota untuk pilihannya
+											echo "<option value=$mkn ";					//pembuka option
+											if($mkn==$product->category){echo "selected> $mkn </option>";}		//membuat value default dari database
+											else{echo "> $mkn </option>";};						//closing option
+										}
+									?>
+								</select>
+							</div>
+
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>
 

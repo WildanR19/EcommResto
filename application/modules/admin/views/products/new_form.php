@@ -56,7 +56,7 @@ $this->load->view("admin/_partials/head.php") ?>
 
 
 						<div class="form-group">
-							<label for="name">Photo</label>
+							<label for="image">Photo</label>
 							<input class="form-control-file <?php echo form_error('price') ? 'is-invalid':'' ?>"
 							 type="file" name="image" />
 							<div class="invalid-feedback">
@@ -65,12 +65,22 @@ $this->load->view("admin/_partials/head.php") ?>
 						</div>
 
 						<div class="form-group">
-							<label for="name">Description*</label>
+							<label for="description">Description*</label>
 							<textarea class="form-control <?php echo form_error('description') ? 'is-invalid':'' ?>"
 							 name="description" placeholder="Product description..."></textarea>
 							<div class="invalid-feedback">
 								<?php echo form_error('description') ?>
 							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="category">Category*</label>
+							  <select class="form-control" name="category">
+								<option selected>Pilih...</option>
+								<?php foreach($category as $row):?>
+								<option value="<?php echo $row->category_id;?>"><?php echo $row->category_name;?></option>
+								<?php endforeach;?>
+							  </select>
 						</div>
 
 						<input class="btn btn-success" type="submit" name="btn" value="Save" />

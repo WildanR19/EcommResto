@@ -9,6 +9,7 @@ class M_products extends CI_Model
     public $price;
     public $image = "default.jpg";
     public $description;
+    public $category;
 
     public function rules()
     {
@@ -23,6 +24,10 @@ class M_products extends CI_Model
             
             ['field' => 'description',
             'label' => 'Description',
+            'rules' => 'required'],
+
+            ['field' => 'category',
+            'label' => 'Category',
             'rules' => 'required']
         ];
     }
@@ -45,6 +50,7 @@ class M_products extends CI_Model
         $this->price = $post["price"];
         $this->image = $this->_uploadImage();
         $this->description = $post["description"];
+        $this->category = $post["category"];
 
         helper_log("add", "Insert Product : ". $this->name);
         return $this->db->insert($this->_table, $this);
@@ -62,6 +68,7 @@ class M_products extends CI_Model
             $this->image = $post["old_image"];
         }
         $this->description = $post["description"];
+        $this->category = $post["category"];
 
         helper_log("update", "Update Product");
 
@@ -81,8 +88,8 @@ class M_products extends CI_Model
         $config['file_name']            = $this->product_id;
         $config['overwrite']			= true;
         $config['max_size']             = 1024; // 1MB
-        $config['max_width']            = 1024;
-        $config['max_height']           = 768;
+        //$config['max_width']            = 1024;
+        //$config['max_height']           = 768;
     
         $this->load->library('upload', $config);
     
@@ -99,5 +106,10 @@ class M_products extends CI_Model
             $filename = explode(".", $product->image)[0];
             return array_map('unlink', glob(FCPATH."gambar/$filename.*"));
         }
+    }
+
+    function getCategory(){
+        return $this->db->get('category')->result();
+        
     }
 }

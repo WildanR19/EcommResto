@@ -38,23 +38,18 @@ $this->load->view("admin/_partials/head.php") ?>
 										<th>Price</th>
 										<th>Photo</th>
 										<th>Description</th>
+										<th>Category</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php foreach ($products as $product): ?>
 									<tr>
-										<td width="150">
-											<?php echo $product->name ?>
-										</td>
-										<td>
-											<?php echo $product->price ?>
-										</td>
-										<td>
-											<img src="<?php echo base_url('gambar/'.$product->image) ?>" width="64" />
-										</td>
-										<td class="small">
-											<?php echo substr($product->description, 0, 120) ?>...</td>
+										<td width="150"><?php echo $product->name ?></td>
+										<td><?php echo $product->price ?></td>
+										<td><img src="<?php echo base_url('gambar/'.$product->image) ?>" width="64" /></td>
+										<td class="small"><?php echo substr($product->description, 0, 120) ?>...</td>
+										<td><?php echo $product->category ?></td>
 										<td width="250">
 											<a href="<?php echo base_url('admin/products/edit/'.$product->product_id) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
