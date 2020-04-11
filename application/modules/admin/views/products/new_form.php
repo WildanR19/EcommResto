@@ -78,7 +78,7 @@ $this->load->view("admin/_partials/head.php") ?>
 							  <select class="form-control" name="category">
 								<option selected>Pilih...</option>
 								<?php foreach($category as $row):?>
-								<option value="<?php echo $row->category_id;?>"><?php echo $row->category_name;?></option>
+								<option value="<?php echo $row->category_name;?>"><?php echo $row->category_name;?></option>
 								<?php endforeach;?>
 							  </select>
 						</div>

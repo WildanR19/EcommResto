@@ -7859,7 +7859,7 @@ h1, h2, h3, h4, h5,
         color: #fac564; }
 
 .ftco-gallery {
-  padding-top: 7em; }
+  padding-top: 0; }
 
 .gallery {
   display: block;
@@ -8974,3 +8974,39 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+  .btn-outline-orange {
+    color: #212529;
+    background-color: #fac564;
+    border-color: #fac564;
+  }
+
+  .btn-outline-orange:hover {
+    color: #fac564;
+    background-color: transparent;
+    border-color: #fac564;
+  }
+
+  .thumbnail {
+    outline: #fac564 solid 1px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(33,33,33,1);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(33,33,33,1);
+    box-shadow: 10px 10px 5px 0px rgba(33,33,33,1);
+  }
+
+  .quantity {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }

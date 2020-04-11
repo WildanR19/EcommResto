@@ -15,3 +15,38 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php echo base_url('assets/js/google-map.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $('.add_cart').click(function(){
+            var product_id    = $(this).data("produkid");
+            var name  = $(this).data("produknama");
+            var price = $(this).data("produkharga");
+            var quantity     = $('#' + product_id).val();
+            $.ajax({
+                url : "<?php echo base_url();?>user/add_to_cart",
+                method : "POST",
+                data : {product_id: product_id, name: name, price: price, quantity: quantity},
+                success: function(data){
+                    $('#detail_cart').html(data);
+                }
+            });
+        });
+ 
+        // Load shopping cart
+        $('#detail_cart').load("<?php echo base_url();?>user/load_cart");
+ 
+        //Hapus Item Cart
+        $(document).on('click','.hapus_cart',function(){
+            var row_id=$(this).attr("id"); //mengambil row_id dari artibut id
+            $.ajax({
+                url : "<?php echo base_url();?>user/hapus_cart",
+                method : "POST",
+                data : {row_id : row_id},
+                success :function(data){
+                    $('#detail_cart').html(data);
+                }
+            });
+        });
+    });
+</script>

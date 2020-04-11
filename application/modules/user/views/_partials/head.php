@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datepicker.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.timepicker.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
 
     <link rel="stylesheet" href="<?php echo base_url('assets/css/flaticon.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/icomoon.css'); ?>">

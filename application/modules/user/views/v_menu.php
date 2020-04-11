@@ -16,7 +16,7 @@
 
             <div class="col-md-7 col-sm-12 text-center ftco-animate">
             	<h1 class="mb-3 mt-5 bread">Menu Makanan</h1>
-	            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Menu</span></p>
+	            <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url(); ?>">Home</a></span> <span>Menu</span></p>
             </div>
 
           </div>
@@ -30,27 +30,6 @@
 
     			<div class="ftco-animate p-md-5">
     				<div class="row">
-    					<div class="col-md-12 nav-link-wrap mb-5">
-    						<div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-    							<a class="nav-link active" id="v-pills-0-tab" data-toggle="pill" href="#v-pills-0"
-    								role="tab" aria-controls="v-pills-0" aria-selected="true">All</a>
-
-    							<a class="nav-link" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab"
-    								aria-controls="v-pills-1" aria-selected="true">Nasi</a>
-
-    							<a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab"
-    								aria-controls="v-pills-2" aria-selected="false">Sop</a>
-
-    							<a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab"
-    								aria-controls="v-pills-3" aria-selected="false">Sayuran</a>
-
-    							<a class="nav-link" id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab"
-    								aria-controls="v-pills-4" aria-selected="false">Minuman</a>
-
-    							<a class="nav-link" id="v-pills-5-tab" data-toggle="pill" href="#v-pills-5" role="tab"
-    								aria-controls="v-pills-5" aria-selected="false">Lainnya</a>
-    						</div>
-    					</div>
 
     					<div class="col-md-12 d-flex align-items-center">
 
@@ -60,190 +39,33 @@
     								aria-labelledby="v-pills-0-tab">
 
     								<div class="row">
-    									<?php foreach ($products as $product): ?>
-    									<div class="col-sm text-center">
-    										<div class="menu-wrap">
-    											<img src="<?php echo base_url('gambar/'.$product->image) ?>"
-    												class="menu-img img mb-4" />
-    											<div class="text">
-    												<h3><a href="#"><?php echo $product->name ?></a></h3>
-    												<p><?php echo $product->description ?>.</p>
-    												<p class="price"><span>Rp. <?php echo $product->price ?></span></p>
-    												<p><a href="#" class="btn btn-white btn-outline-white">Add to
-    														cart</a></p>
-    											</div>
-    										</div>
-    									</div>
-    									<?php endforeach; ?>
-    								</div>
+										<div class="col-md-8">
+											<div class="row">
+											<?php foreach ($products as $row) : ?>
+												<div class="col-md-4">
+													<div class="thumbnail">
+														<img width="200" src="<?php echo base_url().'gambar/'.$row->image;?>">
+														<div class="caption">
+															<h4><?php echo $row->name;?></h4>
+															<div class="row">
+																<div class="col-md-7">
+																	<h4><?php echo 'Rp '.number_format($row->price);?></h4>
+																</div>
+																<div class="col-md-5">
+																	<input type="number" name="quantity" id="<?php echo $row->product_id;?>" value="1" class="quantity">
+																</div>
+															</div>
+															<button class="add_cart btn btn-outline-orange btn-block" data-produkid="<?php echo $row->product_id;?>" data-produknama="<?php echo $row->name;?>" data-produkharga="<?php echo $row->price;?>">Add To Cart</button>
+														</div>
+													</div>
+												</div>
+											<?php endforeach;?> 
+											</div>
+										</div>
+										<?php $this->load->view("_partials/cart.php") ?>
+									</div>
 
     							</div>
-
-    							<div class="tab-pane fade" id="v-pills-1" role="tabpanel"
-    								aria-labelledby="v-pills-1-tab">
-    								<div class="row">
-    									<?php foreach ($products as $product): ?>
-    									<div class="col-sm text-center">
-    										<div class="menu-wrap">
-    											<img src="<?php echo base_url('gambar/'.$product->image) ?>"
-    												class="menu-img img mb-4" />
-    											<div class="text">
-    												<h3><a href="#"><?php echo $product->name ?></a></h3>
-    												<p><?php echo $product->description ?>.</p>
-    												<p class="price"><span>Rp. <?php echo $product->price ?></span></p>
-    												<p><a href="#" class="btn btn-white btn-outline-white">Add to
-    														cart</a></p>
-    											</div>
-    										</div>
-    									</div>
-    									<?php endforeach; ?>
-    								</div>
-    							</div>
-
-    							<div class="tab-pane fade" id="v-pills-2" role="tabpanel"
-    								aria-labelledby="v-pills-2-tab">
-    								<div class="row">
-    									<div class="col-md-4 text-center">
-    										<div class="menu-wrap">
-    											<a href="#" class="menu-img img mb-4"
-    												style="background-image: url(<?php echo base_url('assets/images/drink-1.jpg'); ?> );"></a>
-    											<div class="text">
-    												<h3><a href="#">Lemonade Juice</a></h3>
-    												<p>Far far away, behind the word mountains, far from the countries
-    													Vokalia and Consonantia.</p>
-    												<p class="price"><span>$2.90</span></p>
-    												<p><a href="#" class="btn btn-white btn-outline-white">Add to
-    														cart</a></p>
-    											</div>
-    										</div>
-    									</div>
-    									<div class="col-md-4 text-center">
-    										<div class="menu-wrap">
-    											<a href="#" class="menu-img img mb-4"
-    												style="background-image: url(<?php echo base_url('assets/images/drink-2.jpg'); ?> );"></a>
-    											<div class="text">
-    												<h3><a href="#">Pineapple Juice</a></h3>
-    												<p>Far far away, behind the word mountains, far from the countries
-    													Vokalia and Consonantia.</p>
-    												<p class="price"><span>$2.90</span></p>
-    												<p><a href="#" class="btn btn-white btn-outline-white">Add to
-    														cart</a></p>
-    											</div>
-    										</div>
-    									</div>
-    									<div class="col-md-4 text-center">
-    										<div class="menu-wrap">
-    											<a href="#" class="menu-img img mb-4"
-    												style="background-image: url(<?php echo base_url('assets/images/drink-3.jpg'); ?> );"></a>
-    											<div class="text">
-    												<h3><a href="#">Soda Drinks</a></h3>
-    												<p>Far far away, behind the word mountains, far from the countries
-    													Vokalia and Consonantia.</p>
-    												<p class="price"><span>$2.90</span></p>
-    												<p><a href="#" class="btn btn-white btn-outline-white">Add to
-    														cart</a></p>
-    											</div>
-    										</div>
-    									</div>
-    								</div>
-    							</div>
-
-    							<div class="tab-pane fade" id="v-pills-3" role="tabpanel"
-    								aria-labelledby="v-pills-3-tab">
-    								<div class="row">
-    									<div class="col-md-4 text-center">
-    										<div class="menu-wrap">
-    											<a href="#" class="menu-img img mb-4"
-    												style="background-image: url(<?php echo base_url('assets/images/burger-1.jpg'); ?> );"></a>
-    											<div class="text">
-    												<h3><a href="#">Itallian Pizza</a></h3>
-    												<p>Far far away, behind the word mountains, far from the countries
-    													Vokalia and Consonantia.</p>
-    												<p class="price"><span>$2.90</span></p>
-    												<p><a href="#" class="btn btn-white btn-outline-white">Add to
-    														cart</a></p>
-    											</div>
-    										</div>
-    									</div>
-    									<div class="col-md-4 text-center">
-    										<div class="menu-wrap">
-    											<a href="#" class="menu-img img mb-4"
-    												style="background-image: url(<?php echo base_url('assets/images/burger-2.jpg'); ?> );"></a>
-    											<div class="text">
-    												<h3><a href="#">Itallian Pizza</a></h3>
-    												<p>Far far away, behind the word mountains, far from the countries
-    													Vokalia and Consonantia.</p>
-    												<p class="price"><span>$2.90</span></p>
-    												<p><a href="#" class="btn btn-white btn-outline-white">Add to
-    														cart</a></p>
-    											</div>
-    										</div>
-    									</div>
-    									<div class="col-md-4 text-center">
-    										<div class="menu-wrap">
-    											<a href="#" class="menu-img img mb-4"
-    												style="background-image: url(<?php echo base_url('assets/images/burger-3.jpg'); ?> );"></a>
-    											<div class="text">
-    												<h3><a href="#">Itallian Pizza</a></h3>
-    												<p>Far far away, behind the word mountains, far from the countries
-    													Vokalia and Consonantia.</p>
-    												<p class="price"><span>$2.90</span></p>
-    												<p><a href="#" class="btn btn-white btn-outline-white">Add to
-    														cart</a></p>
-    											</div>
-    										</div>
-    									</div>
-    								</div>
-    							</div>
-
-    							<div class="tab-pane fade" id="v-pills-4" role="tabpanel"
-    								aria-labelledby="v-pills-4-tab">
-    								<div class="row">
-    									<div class="col-md-4 text-center">
-    										<div class="menu-wrap">
-    											<a href="#" class="menu-img img mb-4"
-    												style="background-image: url(<?php echo base_url('assets/images/pasta-1.jpg'); ?> );"></a>
-    											<div class="text">
-    												<h3><a href="#">Itallian Pizza</a></h3>
-    												<p>Far far away, behind the word mountains, far from the countries
-    													Vokalia and Consonantia.</p>
-    												<p class="price"><span>$2.90</span></p>
-    												<p><a href="#" class="btn btn-white btn-outline-white">Add to
-    														cart</a></p>
-    											</div>
-    										</div>
-    									</div>
-    									<div class="col-md-4 text-center">
-    										<div class="menu-wrap">
-    											<a href="#" class="menu-img img mb-4"
-    												style="background-image: url(<?php echo base_url('assets/images/pasta-2.jpg'); ?> );"></a>
-    											<div class="text">
-    												<h3><a href="#">Itallian Pizza</a></h3>
-    												<p>Far far away, behind the word mountains, far from the countries
-    													Vokalia and Consonantia.</p>
-    												<p class="price"><span>$2.90</span></p>
-    												<p><a href="#" class="btn btn-white btn-outline-white">Add to
-    														cart</a></p>
-    											</div>
-    										</div>
-    									</div>
-    									<div class="col-md-4 text-center">
-    										<div class="menu-wrap">
-    											<a href="#" class="menu-img img mb-4"
-    												style="background-image: url(<?php echo base_url('assets/images/pasta-3.jpg'); ?> );"></a>
-    											<div class="text">
-    												<h3><a href="#">Itallian Pizza</a></h3>
-    												<p>Far far away, behind the word mountains, far from the countries
-    													Vokalia and Consonantia.</p>
-    												<p class="price"><span>$2.90</span></p>
-    												<p><a href="#" class="btn btn-white btn-outline-white">Add to
-    														cart</a></p>
-    											</div>
-    										</div>
-    									</div>
-    								</div>
-    							</div>
-
     						</div>
     					</div>
     				</div>

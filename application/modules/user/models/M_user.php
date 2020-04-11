@@ -16,6 +16,7 @@ private $_table = "products";
     }
 
     public function getByCat($category){
-        return $this->db->get_where($this->_table, "FIND_IN_SET( '$category' , categories) ")->result();
+        $hasil=$this->db->query("SELECT * FROM $this->_table WHERE category='$category'");
+        return $hasil->result();
     }
 }

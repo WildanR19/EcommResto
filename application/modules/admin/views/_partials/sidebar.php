@@ -12,7 +12,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item <?php if($this->uri->segment(2)=="dashboard"){echo "active";}?>">
         <a class="nav-link" href="<?php echo base_url('admin/dashboard'); ?>">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -23,14 +23,14 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Account
+        User
       </div>
 
       <!-- Nav Item -->
-      <li class="nav-item">
+      <li class="nav-item <?php if($this->uri->segment(2)=="order"){echo "active";}?>">
         <a class="nav-link" href="<?php echo base_url('admin/#'); ?>">
         <i class="fas fa-fw fa-user"></i>
-          <span>User Account</span></a>
+          <span>Order</span></a>
       </li>
 
       <!-- Divider -->
@@ -41,13 +41,13 @@
         Product Management
       </div>
 
-      <li class="nav-item">
+      <li class="nav-item <?php if($this->uri->segment(2)=="products"){echo "active";}?>">
         <a class="nav-link" href="<?php echo base_url('admin/products'); ?>">
           <i class="fas fa-fw fa-table"></i>
           <span>Products</span></a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item <?php if($this->uri->segment(2)=="log"){echo "active";}?>">
         <a class="nav-link" href="<?php echo base_url('admin/log'); ?>">
           <i class="fas fa-fw fa-history"></i>
           <span>Activity Log</span>

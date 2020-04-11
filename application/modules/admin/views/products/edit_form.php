@@ -87,7 +87,7 @@ $this->load->view("admin/_partials/head.php") ?>
 								<label for="name">Kategori*</label>
 								<select class="form-control" name="category">
 									<?php
-										$arrmkn = array('Nasi','Sop','Sayuran','Minuman','Lainnya');
+										$arrmkn = array('Pasta','Pizza','Minuman','Lainnya');
 										sort($arrmkn);
 										foreach ($arrmkn as $mkn) {						//print arary kota untuk pilihannya
 											echo "<option value=$mkn ";					//pembuka option
