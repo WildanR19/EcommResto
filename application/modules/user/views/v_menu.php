@@ -47,6 +47,7 @@
 														<img width="200" src="<?php echo base_url().'gambar/'.$row->image;?>">
 														<div class="caption">
 															<h4><?php echo $row->name;?></h4>
+															<h6><?php echo $row->description;?></h6>
 															<div class="row">
 																<div class="col-md-7">
 																	<h4><?php echo 'Rp '.number_format($row->price);?></h4>
