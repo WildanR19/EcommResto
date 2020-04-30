@@ -41,10 +41,10 @@
     								<div class="row">
 										<div class="col-md-8">
 											<div class="row">
-											<?php foreach ($products as $row) : ?>
+											<?php foreach ($products->result() as $row) : ?>
 												<div class="col-md-4">
 													<div class="thumbnail">
-														<img width="200" src="<?php echo base_url().'gambar/'.$row->image;?>">
+														<img src="<?php echo base_url().'gambar/'.$row->image;?>" style="height:200px; object-fit: cover; object-position: center;">
 														<div class="caption">
 															<h4><?php echo $row->name;?></h4>
 															<h6><?php echo $row->description;?></h6>
@@ -61,6 +61,11 @@
 													</div>
 												</div>
 											<?php endforeach;?> 
+											</div>
+											<div class="row">
+												<div class="col">
+													<?php echo $pagination; ?>
+												</div>
 											</div>
 										</div>
 										<?php $this->load->view("_partials/cart.php") ?>

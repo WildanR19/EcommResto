@@ -32,10 +32,10 @@ class M_products extends CI_Model
         ];
     }
 
-    public function getAll()
+    /*public function getAll()
     {
         return $this->db->get($this->_table)->result();
-    }
+    }*/
     
     public function getById($id)
     {

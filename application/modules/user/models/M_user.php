@@ -19,4 +19,9 @@ private $_table = "products";
         $hasil=$this->db->query("SELECT * FROM $this->_table WHERE category='$category'");
         return $hasil->result();
     }
+    
+    function get_produk_list($limit, $start){
+        $query = $this->db->get($this->_table, $limit, $start);
+        return $query;
+    }
 }
