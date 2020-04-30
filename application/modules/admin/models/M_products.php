@@ -112,4 +112,9 @@ class M_products extends CI_Model
         return $this->db->get('category')->result();
         
     }
+
+    function get_produk_list($limit, $start){
+        $query = $this->db->get($this->_table, $limit, $start);
+        return $query;
+    }
 }

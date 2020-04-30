@@ -31,26 +31,26 @@ $this->load->view("admin/_partials/head.php") ?>
 					<div class="card-body">
 
 						<div class="table-responsive">
-							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-								<thead>
+							<table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
+								<thead class="thead-light">
 									<tr>
-										<th>Name</th>
-										<th>Price</th>
-										<th>Photo</th>
-										<th>Description</th>
-										<th>Category</th>
-										<th>Action</th>
+										<th class="text-center">Name</th>
+										<th class="text-center">Price</th>
+										<th class="text-center">Photo</th>
+										<th class="text-center">Description</th>
+										<th class="text-center">Category</th>
+										<th class="text-center">Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($products as $product): ?>
+									<?php foreach ($data->result() as $product): ?>
 									<tr>
-										<td width="150"><?php echo $product->name ?></td>
+										<td><?php echo $product->name ?></td>
 										<td><?php echo $product->price ?></td>
 										<td><img src="<?php echo base_url('gambar/'.$product->image) ?>" width="64" /></td>
 										<td class="small"><?php echo substr($product->description, 0, 120) ?>...</td>
 										<td><?php echo $product->category ?></td>
-										<td width="250">
+										<td class="text-center">
 											<a href="<?php echo base_url('admin/products/edit/'.$product->product_id) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
 											<a onclick="deleteConfirm('<?php echo base_url('admin/products/delete/'.$product->product_id) ?>')"
@@ -61,6 +61,11 @@ $this->load->view("admin/_partials/head.php") ?>
 
 								</tbody>
 							</table>
+						</div>
+						<div class="row">
+							<div class="col">
+								<?php echo $pagination; ?>
+							</div>
 						</div>
 					</div>
 				</div>
