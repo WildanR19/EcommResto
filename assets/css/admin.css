@@ -1,0 +1,66 @@
+.kartu {
+    -webkit-transition: all 0.3s;
+    border: 5px solid transparent;
+    transition: all 0.3s;
+}
+.kartu:hover{
+    border: 5px solid rgba(223, 223, 223, 0.7);
+}
+
+.menu-item {
+    background-color: rgb(255, 255, 255);
+}
+
+.menu-item a {
+    display: block;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.menu-item a p {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.menu-item a i {
+    font-size: 50px;
+    padding-bottom: 20px;
+}
+
+.menu-item:hover a {
+    text-decoration: none;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    line-height: 1; 
+}
+.navbar-brand span {
+    font-size: 24px;
+    color: #d68014;
+}
+.navbar-brand small {
+    text-transform: uppercase;
+    font-size: 11px;
+    display: block;
+    text-align: center;
+    color: #d68014;
+    letter-spacing: 4px; 
+}
+
+.navbar-brand2 {
+    font-size: 24px;
+    line-height: 1; 
+}
+.navbar-brand2 span {
+    font-size: 24px;
+    color: #fac564;
+}
+.navbar-brand2 small {
+    text-transform: uppercase;
+    font-size: 11px;
+    display: block;
+    text-align: center;
+    color: #fac564;
+    letter-spacing: 4px; 
+}

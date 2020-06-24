@@ -28,12 +28,17 @@ class Login extends MX_Controller{
 			'password' => md5($password)
 			);
 		$cek = $this->m_login->cek_login("users",$where)->num_rows();
+		$user = $this->m_login->get($username);
 		if($cek > 0){
-			$this->session->set_userdata('username', $username);
+			$session = array(
+				'username' => $user->username, // Buat session username
+				'nama' => $user->nama // Buat session nama
+			);
+			$this->session->set_userdata($session);
 			helper_log("login", "Login");
 			redirect(base_url("admin/dashboard"));
 			$this->session->set_flashdata('success', 'Anda Berhasil Login');
-			
+
 		}else{
 			$this->session->set_flashdata('login_failed', '<div class="alert alert-danger">Username Atau Password salah!</div>');
 		   	redirect(base_url('login'));

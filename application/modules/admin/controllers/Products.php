@@ -16,7 +16,7 @@ class Products extends MX_Controller
     {
         if($this->m_login->cek_session()){
             //konfigurasi pagination
-            $config['base_url'] = site_url('admin/products/index'); //site url
+            $config['base_url'] = site_url('admin/products/index');
             $config['total_rows'] = $this->db->count_all('products'); //total row
             $config['per_page'] = 5;  //show record per halaman
             $config["uri_segment"] = 4;  // uri parameter
@@ -52,7 +52,6 @@ class Products extends MX_Controller
 
             $this->load->view('products/list', $data);
         }else{
-            //jika session belum terdaftar, maka redirect ke halaman login
             redirect(base_url('login'));
         }
     }
@@ -72,7 +71,6 @@ class Products extends MX_Controller
             $data['category'] = $this->m_products->getCategory();
             $this->load->view("products/new_form", $data);
         }else{
-            //jika session belum terdaftar, maka redirect ke halaman login
             redirect(base_url('login'));
         }
     }
@@ -95,7 +93,6 @@ class Products extends MX_Controller
             
             $this->load->view("products/edit_form", $data);
         }else{
-            //jika session belum terdaftar, maka redirect ke halaman login
             redirect(base_url('login'));
         }
     }
@@ -108,8 +105,21 @@ class Products extends MX_Controller
                 redirect(base_url('admin/products'));
             }
         }else{
-            //jika session belum terdaftar, maka redirect ke halaman login
             redirect(base_url('login'));
         }
     }
+    
+    public function search(){
+        $keyword = $this->input->post('keyword');
+        $product = $this->m_products->search($keyword);
+        
+        // Kita load file view.php sambil mengirim data siswa hasil query function search di SiswaModel
+        $hasil = $this->load->view('view', array('products'=>$product), true);
+        
+        // Buat sebuah array
+        $callback = array(
+          'hasil' => $hasil, // Set array hasil dengan isi dari view.php yang diload tadi
+        );
+        echo json_encode($callback); // konversi varibael $callback menjadi JSON
+      }
 }

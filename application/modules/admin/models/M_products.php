@@ -110,11 +110,21 @@ class M_products extends CI_Model
 
     function getCategory(){
         return $this->db->get('category')->result();
-        
     }
 
     function get_produk_list($limit, $start){
         $query = $this->db->get($this->_table, $limit, $start);
         return $query;
+    }
+    
+    public function search($keyword){
+        $this->db->like('name', $keyword);
+        $this->db->or_like('price', $keyword);
+        $this->db->or_like('description', $keyword);
+        $this->db->or_like('category', $keyword);
+        
+        $result = $this->db->get($this->_table)->result(); // Tampilkan data siswa berdasarkan keyword
+        
+        return $result; 
     }
 }

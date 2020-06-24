@@ -1,11 +1,8 @@
+<?php if($this->session->userdata('nama')=='admin'){ ?> 
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('admin/dashboard'); ?>">
-        <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fab fa-shopify"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">E-Commerce</div>
+      <div class="navbar-brand2"><span class="flaticon-chef mr-1"></span>Wii<br><small>Resto</small></div>
       </a>
 
       <!-- Divider -->
@@ -63,3 +60,5 @@
       </div>
 
     </ul>
+
+    <?php }?>
