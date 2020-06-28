@@ -1,4 +1,4 @@
-<div class="col-md-4">
+
 	<h4>Shopping Cart</h4>
 	<table class="table table-striped">
 		<thead>
@@ -16,4 +16,3 @@
 
 	</table>
 	<button class="btn btn-success align-content-end">Chekout</button>
-</div>

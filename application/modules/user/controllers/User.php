@@ -12,7 +12,7 @@ class User extends MX_Controller {
     }
 
     function menu(){
-        //konfigurasi pagination
+        //konfigurasi pagination all
         $config['base_url'] = site_url('user/menu/index'); //site url
         $config['total_rows'] = $this->db->count_all('products'); //total row
         $config['per_page'] = 6;  //show record per halaman
@@ -21,29 +21,33 @@ class User extends MX_Controller {
         $config["num_links"] = floor($choice);
 
         //Style pagination
-        $config['first_link']       = 'First';
-        $config['last_link']        = 'Last';
-        $config['next_link']        = 'Next';
-        $config['prev_link']        = 'Prev';
-        $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
-        $config['full_tag_close']   = '</ul></nav></div>';
-        $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
+        $config['first_link']       = '';
+        $config['last_link']        = '';
+        $config['next_link']        = '&gt;';
+        $config['prev_link']        = '&lt;';
+        $config['full_tag_open']    = '<div class="block-27"><ul>';
+        $config['full_tag_close']   = '</ul></div>';
+        $config['num_tag_open']     = '<li><span>';
         $config['num_tag_close']    = '</span></li>';
-        $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_open']     = '<li class="active"><span>';
         $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
-        $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
-        $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
-        $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
-        $config['prev_tagl_close']  = '</span>Next</li>';
-        $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
-        $config['first_tagl_close'] = '</span></li>';
-        $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
-        $config['last_tagl_close']  = '</span></li>';
+        $config['next_tag_open']    = '<li><span>';
+        $config['next_tag_close']  = '</span></li>';
+        $config['prev_tag_open']    = '<li><span>';
+        $config['prev_tag_close']  = '</span></li>';
+        $config['first_tag_open']   = '';
+        $config['first_tag_close'] = '';
+        $config['last_tag_open']    = '';
+        $config['last_tag_close']  = '';
 
         $this->pagination->initialize($config);
         $data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
         
         $data['products'] = $this->m_user->get_produk_list($config["per_page"], $data['page']);
+        $data['pasta'] = $this->m_user->get_produk_pasta($config["per_page"], $data['page']);
+        $data['pizza'] = $this->m_user->get_produk_pizza($config["per_page"], $data['page']);
+        $data['drink'] = $this->m_user->get_produk_drink($config["per_page"], $data['page']);
+        $data['other'] = $this->m_user->get_produk_other($config["per_page"], $data['page']);
 
         $data['pagination'] = $this->pagination->create_links();
         

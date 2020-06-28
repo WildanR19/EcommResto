@@ -51,22 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                 </form>
 
-                <div class="social-auth-links text-center mb-3">
-                    <p>- OR -</p>
-                    <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                    </a>
-                    <a href="#" class="btn btn-block btn-danger">
-                        <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-                    </a>
-                </div>
-                <!-- /.social-auth-links -->
-
-                <p class="mb-1">
+                <p class="mb-1 mt-3">
                     <a href="<?php echo base_url('login/lupapw'); ?>">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="<?php echo base_url('login/register'); ?>" class="text-center">Register a new membership</a>
+                    <a href="<?php echo base_url('login/register'); ?>" class="text-center">Register new account</a>
                 </p>
             </div>
             <!-- /.login-card-body -->

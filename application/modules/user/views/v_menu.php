@@ -27,55 +27,38 @@
     <section class="ftco-menu">
     	<div class="container-fluid">
     		<div class="row d-md-flex">
+				<div class="col-lg-8 ftco-animate p-md-5">
+					<div class="row">
+						<div class="col nav-link-wrap mb-5">
+    						<div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    							<a class="nav-link active" id="v-pills-0-tab" data-toggle="pill" href="#v-pills-0"
+    								role="tab" aria-controls="v-pills-0" aria-selected="true">All</a>
 
-    			<div class="ftco-animate p-md-5">
-    				<div class="row">
+    							<a class="nav-link" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab"
+    								aria-controls="v-pills-1" aria-selected="true">Pasta</a>
+
+    							<a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab"
+    								aria-controls="v-pills-2" aria-selected="false">Pizza</a>
+
+    							<a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab"
+    								aria-controls="v-pills-3" aria-selected="false">Drink</a>
+
+    							<a class="nav-link" id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab"
+    								aria-controls="v-pills-4" aria-selected="false">Other</a>
+							</div>
+						</div>
 
     					<div class="col-md-12 d-flex align-items-center">
 
     						<div class="tab-content ftco-animate" id="v-pills-tabContent">
-
-    							<div class="tab-pane fade show active" id="v-pills-0" role="tabpanel"
-    								aria-labelledby="v-pills-0-tab">
-
-    								<div class="row">
-										<div class="col-md-8">
-											<div class="row">
-											<?php foreach ($products->result() as $row) : ?>
-												<div class="col-md-4">
-													<div class="thumbnail">
-														<img src="<?php echo base_url().'gambar/'.$row->image;?>" style="height:200px; object-fit: cover; object-position: center;">
-														<div class="caption">
-															<h4><?php echo $row->name;?></h4>
-															<h6><?php echo $row->description;?></h6>
-															<div class="row">
-																<div class="col-md-7">
-																	<h4><?php echo 'Rp '.number_format($row->price);?></h4>
-																</div>
-																<div class="col-md-5">
-																	<input type="number" name="quantity" id="<?php echo $row->product_id;?>" value="1" class="quantity">
-																</div>
-															</div>
-															<button class="add_cart btn btn-outline-orange btn-block" data-produkid="<?php echo $row->product_id;?>" data-produknama="<?php echo $row->name;?>" data-produkharga="<?php echo $row->price;?>">Add To Cart</button>
-														</div>
-													</div>
-												</div>
-											<?php endforeach;?> 
-											</div>
-											<div class="row">
-												<div class="col">
-													<?php echo $pagination; ?>
-												</div>
-											</div>
-										</div>
-										<?php $this->load->view("_partials/cart.php") ?>
-									</div>
-
-    							</div>
+								<?php $this->load->view('menu-data'); ?>
     						</div>
     					</div>
     				</div>
-    			</div>
+				</div>
+				<div class="col-lg-4 ftco-animate p-md-5">
+					<?php $this->load->view("_partials/cart.php") ?>
+	    		</div>				
     		</div>
     	</div>
     </section>
