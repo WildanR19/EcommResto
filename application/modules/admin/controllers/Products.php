@@ -8,48 +8,38 @@ class Products extends MX_Controller
     {
         parent::__construct();
         $this->load->library('form_validation');
+        $this->load->library('ajax_pagination'); 
         $this->load->model('m_products');
         $this->load->model('login/m_login');
+         
+        $this->perPage = 5;
     }
 
-    public function index($num = '')
-    {
+    public function index(){
         if($this->m_login->cek_session()){
-            //konfigurasi pagination
-            $config['base_url'] = site_url('admin/products/index');
-            $config['total_rows'] = $this->db->count_all('products'); //total row
-            $config['per_page'] = 5;  //show record per halaman
-            $config["uri_segment"] = 4;  // uri parameter
-            $choice = $config["total_rows"] / $config["per_page"];
-            $config["num_links"] = floor($choice);
-    
-            //Style pagination
-            $config['first_link']       = 'First';
-            $config['last_link']        = 'Last';
-            $config['next_link']        = 'Next';
-            $config['prev_link']        = 'Prev';
-            $config['full_tag_open']    = '<div class="pagging text-center"><nav><ul class="pagination justify-content-center">';
-            $config['full_tag_close']   = '</ul></nav></div>';
-            $config['num_tag_open']     = '<li class="page-item"><span class="page-link">';
-            $config['num_tag_close']    = '</span></li>';
-            $config['cur_tag_open']     = '<li class="page-item active"><span class="page-link">';
-            $config['cur_tag_close']    = '<span class="sr-only">(current)</span></span></li>';
-            $config['next_tag_open']    = '<li class="page-item"><span class="page-link">';
-            $config['next_tagl_close']  = '<span aria-hidden="true">&raquo;</span></span></li>';
-            $config['prev_tag_open']    = '<li class="page-item"><span class="page-link">';
-            $config['prev_tagl_close']  = '</span>Next</li>';
-            $config['first_tag_open']   = '<li class="page-item"><span class="page-link">';
-            $config['first_tagl_close'] = '</span></li>';
-            $config['last_tag_open']    = '<li class="page-item"><span class="page-link">';
-            $config['last_tagl_close']  = '</span></li>';
-    
-            $this->pagination->initialize($config);
-            $data['page'] = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+            $data = array(); 
+         
+            // Get record count 
+            $conditions['returnType'] = 'count'; 
+            $totalRec = $this->m_products->getRows($conditions); 
             
-            $data['data'] = $this->m_products->get_produk_list($config["per_page"], $data['page']);
-    
-            $data['pagination'] = $this->pagination->create_links();
-
+            // Pagination configuration 
+            $config['target']      = '#dataList'; 
+            $config['base_url']    = base_url('admin/products/ajaxPaginationData'); 
+            $config['total_rows']  = $totalRec;
+            $config['per_page']    = $this->perPage; 
+            $config['link_func']   = 'searchFilter'; 
+            
+            // Initialize pagination library 
+            $this->ajax_pagination->initialize($config); 
+            
+            // Get records 
+            $conditions = array( 
+                'limit' => $this->perPage 
+            ); 
+            $data['products'] = $this->m_products->getRows($conditions); 
+            
+            // Load the list page view 
             $this->load->view('products/list', $data);
         }else{
             redirect(base_url('login'));
@@ -109,17 +99,46 @@ class Products extends MX_Controller
         }
     }
     
-    public function search(){
-        $keyword = $this->input->post('keyword');
-        $product = $this->m_products->search($keyword);
-        
-        // Kita load file view.php sambil mengirim data siswa hasil query function search di SiswaModel
-        $hasil = $this->load->view('view', array('products'=>$product), true);
-        
-        // Buat sebuah array
-        $callback = array(
-          'hasil' => $hasil, // Set array hasil dengan isi dari view.php yang diload tadi
-        );
-        echo json_encode($callback); // konversi varibael $callback menjadi JSON
-      }
+    function ajaxPaginationData(){ 
+        // Define offset 
+        $page = $this->input->post('page');
+        if(!$page){ 
+            $offset = 0; 
+        }else{ 
+            $offset = $page; 
+        } 
+         
+        // Set conditions for search and filter 
+        $keywords = $this->input->post('keywords'); 
+        $sortBy = $this->input->post('sortBy'); 
+        if(!empty($keywords)){ 
+            $conditions['search']['keywords'] = $keywords; 
+        } 
+        if(!empty($sortBy)){ 
+            $conditions['search']['sortBy'] = $sortBy; 
+        } 
+         
+        // Get record count 
+        $conditions['returnType'] = 'count'; 
+        $totalRec = $this->m_products->getRows($conditions); 
+         
+        // Pagination configuration 
+        $config['target']      = '#dataList'; 
+        $config['base_url']    = base_url('admin/products/ajaxPaginationData'); 
+        $config['total_rows']  = $totalRec; 
+        $config['per_page']    = $this->perPage; 
+        $config['link_func']   = 'searchFilter'; 
+         
+        // Initialize pagination library 
+        $this->ajax_pagination->initialize($config); 
+         
+        // Get records 
+        $conditions['start'] = $offset; 
+        $conditions['limit'] = $this->perPage; 
+        unset($conditions['returnType']); 
+        $data['products'] = $this->m_products->getRows($conditions); 
+         
+        // Load the data list view 
+        $this->load->view('products/ajax-data', $data, false); 
+    }
 }

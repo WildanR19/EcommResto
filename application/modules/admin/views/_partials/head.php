@@ -20,9 +20,4 @@
   <!-- Custom styles for this template-->
   <link href="<?php echo base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/admin.css'); ?>" rel="stylesheet">
-
-  <script>
-    	var baseurl = "<?php echo base_url("admin/"); ?>";
-  </script>
-	<script src="<?php echo base_url("assets/js/config.js"); ?>"></script>
 </head>

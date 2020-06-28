@@ -25,7 +25,7 @@
 
       <!-- Nav Item -->
       <li class="nav-item <?php if($this->uri->segment(2)=="order"){echo "active";}?>">
-        <a class="nav-link" href="<?php echo base_url('admin/#'); ?>">
+        <a class="nav-link" href="<?php echo base_url('admin/posts'); ?>">
         <i class="fas fa-fw fa-user"></i>
           <span>Order</span></a>
       </li>
