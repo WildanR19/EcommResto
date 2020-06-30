@@ -7,6 +7,9 @@ class Products extends MX_Controller
     public function __construct()
     {
         parent::__construct();
+        if(!$this->session->userdata('username')){
+			redirect('login');
+		}
         $this->load->library('form_validation');
         $this->load->library('ajax_pagination'); 
         $this->load->model('m_products');

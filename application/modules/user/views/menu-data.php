@@ -30,7 +30,7 @@
     
 <div class="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
     <div class="row">
-        <?php foreach ($pasta->result() as $row) : ?>
+    <?php foreach ($pasta->result() as $row) : ?>
             <div class="col-md-4">
                 <div class="thumbnail">
                     <img src="<?php echo base_url().'gambar/'.$row->image;?>" style="height:200px; object-fit: cover; object-position: center;">
@@ -51,11 +51,6 @@
             </div>
         <?php endforeach;?> 
     </div>
-    <!--<div class="row">
-        <div class="col">
-            <?php echo $pagination; ?>
-        </div>
-    </div>-->
 </div>
 
 <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">

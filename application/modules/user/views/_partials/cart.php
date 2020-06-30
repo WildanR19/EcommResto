@@ -15,4 +15,4 @@
 		</tbody>
 
 	</table>
-	<button class="btn btn-success align-content-end">Chekout</button>
+	<button class="btn btn-success align-content-end" data-toggle="modal" data-target="#checkoutModal">Checkout</button>

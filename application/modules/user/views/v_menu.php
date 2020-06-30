@@ -22,8 +22,8 @@
           </div>
         </div>
       </div>
-    </section>
-    
+	</section>
+	
     <section class="ftco-menu">
     	<div class="container-fluid">
     		<div class="row d-md-flex">
@@ -49,9 +49,8 @@
 						</div>
 
     					<div class="col-md-12 d-flex align-items-center">
-
     						<div class="tab-content ftco-animate" id="v-pills-tabContent">
-								<?php $this->load->view('menu-data'); ?>
+								<?php $this->load->view('menu-data'); ?>								
     						</div>
     					</div>
     				</div>
@@ -65,6 +64,9 @@
 	<?php $this->load->view("_partials/footer.php") ?>
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+  <!-- Checkout Modal-->
+  <?php $this->load->view("_partials/modal.php") ?>
+
   <?php $this->load->view("_partials/js.php") ?>
   </body>
 </html>

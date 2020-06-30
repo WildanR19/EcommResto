@@ -106,11 +106,13 @@ class User extends MX_Controller {
         $this->cart->update($data);
         echo $this->show_cart();
     }
- 
-    function menuByCategory(){
-        $category=$this->input->post('category');
-        $data = $this->m_user->getByCat($category);
-        echo json_encode($data);
+
+    function checkout(){
+        $this->load->view("checkout");
+    }
+
+    function contact(){
+        $this->load->view("contact");
     }
 }
 ?>

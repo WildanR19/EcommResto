@@ -37,8 +37,8 @@ $this->load->view("admin/_partials/head.php") ?>
 							<div class="input-group justify-content-end">
 								<input type="text" class="form-control bg-white border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" id="keywords" onkeyup="searchFilter();" />
 								<select id="sortBy" onchange="searchFilter();" class="custom-select">
-									<option value="">Sort by Name</option>
-									<option value="asc">Ascending</option>
+									<option value="">Sort by ID</option>
+									<option value="asc">Sort by Name</option>
 									<option value="desc">Descending</option>
 								</select>
 							</div>
@@ -125,22 +125,22 @@ $this->load->view("admin/_partials/head.php") ?>
 		}
 
 		function searchFilter(page_num){
-    page_num = page_num?page_num:0;
-    var keywords = $('#keywords').val();
-    var sortBy = $('#sortBy').val();
-    $.ajax({
-        type: 'POST',
-        url: '<?php echo base_url('admin/products/ajaxPaginationData/'); ?>'+page_num,
-        data:'page='+page_num+'&keywords='+keywords+'&sortBy='+sortBy,
-        beforeSend: function(){
-            $('.loading').show();
-        },
-        success: function(html){
-            $('#dataList').html(html);
-            $('.loading').fadeOut("slow");
-        }
-    });
-}
+			page_num = page_num?page_num:0;
+			var keywords = $('#keywords').val();
+			var sortBy = $('#sortBy').val();
+			$.ajax({
+				type: 'POST',
+				url: '<?php echo base_url('admin/products/ajaxPaginationData/'); ?>'+page_num,
+				data:'page='+page_num+'&keywords='+keywords+'&sortBy='+sortBy,
+				beforeSend: function(){
+					$('.loading').show();
+				},
+				success: function(html){
+					$('#dataList').html(html);
+					$('.loading').fadeOut("slow");
+				}
+			});
+		}
 
 	</script>
 </body>

@@ -7,60 +7,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view("_partials/head.php") ?>
 </head>
 <body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="login"><b>Form</b>Login</a>
-        </div>
-		<!-- /.login-logo -->
-		<?php echo $this->session->flashdata('login_failed'); ?>
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in to start your session</p>
+<form action="<?php echo base_url('login/aksi_login'); ?>" class="login-form" method="POST">
+        <h1>Login</h1>
+        <?php echo $this->session->flashdata('login_failed'); ?>
 
-                <form action="<?php echo base_url('login/aksi_login'); ?>" method="post">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Username" name="username">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" name="password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-4">
-                            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-						</div>
-                        <!-- /.col -->
-                    </div>
-                </form>
-
-                <p class="mb-1 mt-3">
-                    <a href="<?php echo base_url('login/lupapw'); ?>">I forgot my password</a>
-                </p>
-                <p class="mb-0">
-                    <a href="<?php echo base_url('login/register'); ?>" class="text-center">Register new account</a>
-                </p>
-            </div>
-            <!-- /.login-card-body -->
+        <div class="txtb">
+          <input type="text" name="username">
+          <span data-placeholder="Username"></span>
         </div>
-    </div>
+
+        <div class="txtb">
+          <input type="password" name="password">
+          <span data-placeholder="Password"></span>
+        </div>
+
+        <input type="submit" class="logbtn" value="Login" type="submit">
+
+        <div class="bottom-text">
+          Don't have account? <a href="<?php echo base_url('login/register'); ?>">Sign up</a>
+        </div>
+
+      </form>
+      <script type="text/javascript">
+      $(".txtb input").on("focus",function(){
+        $(this).addClass("focus");
+      });
+
+      $(".txtb input").on("blur",function(){
+        if($(this).val() == "")
+        $(this).removeClass("focus");
+      });
+
+</script>
 <!-- /.login-box -->
 <?php $this->load->view("_partials/js.php") ?>
 </body>

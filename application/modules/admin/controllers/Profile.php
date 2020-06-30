@@ -6,6 +6,9 @@
         function __construct(){           
             parent::__construct();
             $this->load->model('login/m_login');
+            if(!$this->session->userdata('username')){
+			    redirect('login');
+		    }
         }
 
         public function index()  {   
