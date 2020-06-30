@@ -4,7 +4,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Success Check</title>
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/success.css') ?>">
 </head>
 
 <body>

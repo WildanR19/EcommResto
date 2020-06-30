@@ -20,7 +20,7 @@ $this->load->view("admin/_partials/head.php") ?>
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid" style="height: 100%;">
+        <div class="container-fluid">
 
           <!-- Page Heading -->
           <?php if($this->session->userdata('nama')=='admin'){ ?> 
@@ -40,7 +40,7 @@ $this->load->view("admin/_partials/head.php") ?>
                 <div class="card border-left-primary shadow h-100 py-2 kartu">
                   <div class="card-body">
                     <div class="row no-gutters justify-content-center menu-item">
-                      <a href="">
+                      <a href="<?php echo base_url('admin/kasir') ?>">
                         <i class="fa fa-shopping-bag text-primary"></i>
                         <p class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pembayaran</p>
                       </a>
