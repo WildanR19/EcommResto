@@ -23,7 +23,7 @@ class LoginUser extends MX_Controller {
             redirect(base_url('user/loginuser'));
         }else{
             $session = array(
-                'username' => $username, // Buat session username
+                'customer' => $username, // Buat session username
                 'nomeja' => $password,
                 'email' => $email
             );

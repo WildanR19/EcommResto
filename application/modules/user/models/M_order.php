@@ -4,7 +4,7 @@ class M_order extends CI_Model{
 
     public function process(){
         
-		$user = $this->session->userdata('username');
+		$user = $this->session->userdata('customer');
 		$meja = $this->session->userdata('nomeja');
 		$order = array(
             'order_id'      => uniqid(),

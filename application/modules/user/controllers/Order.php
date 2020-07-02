@@ -4,7 +4,7 @@ class Order extends MX_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		if(!$this->session->userdata('username')){
+		if(!$this->session->userdata('customer')){
 			redirect(base_url('user/loginuser'));
         }
 		$this->load->model('m_order');

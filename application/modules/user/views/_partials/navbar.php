@@ -11,7 +11,7 @@
 			  <li class="nav-item"><a href="<?php echo base_url('user/contact'); ?>" class="nav-link">Contact</a></li>
 			  <li class="nav-item dropdown">
 				<a class="btn nav-link dropdown-toggle" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span><?php echo ucfirst($this->session->userdata('username')); ?></span>
+					<span><?php echo ucfirst($this->session->userdata('customer')); ?></span>
 					<i class="fas fa-user fa-sm fa-fw mr-2"></i>
 				</a>
 				<!-- Dropdown - User Information -->
