@@ -1,83 +1,76 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+	<title>Login V18</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Login</title>
-
-  <!-- Custom fonts for this template-->
-  <link href="<?php echo base_url();?>assets/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template-->
-  <link href="<?php echo base_url();?>assets/css/sb-admin-2.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/fontawesome-free/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/loginuser/util.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/loginuser/main.css">
 
 </head>
+<body style="background-color: #666666;">
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="<?php echo base_url('user/loginuser/aksi_login') ?>" method="POST">
+					<span class="login100-form-title p-b-43">
+						Login to continue
+          </span>
+          <?php echo $this->session->flashdata('login_failed'); ?>
 
-<body style="background: url(<?php echo base_url() ?>assets/images/bg_4.jpg) no-repeat fixed; background-size:cover;">
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="text" name="nama">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Nama</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div>
+					
+					
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="number" name="nomeja">
+						<span class="focus-input100"></span>
+						<span class="label-input100">No.Meja</span>
+					</div>
 
-  <div class="container">
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+					</div>
+			
 
-    <!-- Outer Row -->
-    <br><br><br>
-    <div class="row justify-content-center">
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Login
+						</button>
+					</div>
+					
+				</form>
 
-      <div class="col-xl-10 col-lg-12 col-md-9">
-
-        <div class="card o-hidden border-0 shadow-lg my-5">
-          <div class="card-body p-0">
-            <!-- Nested Row within Card Body -->
-            <div class="row">
-              <div class="col-lg-6 d-none d-lg-block" style="background-image: url('<?php echo base_url() ?>assets/images/about.jpg');background-position: center; background-size: cover;"></div>
-              <div class="col-lg-6">
-                <div class="p-5">
-                  <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
-                  </div>
-                  <form class="user" action="<?php echo base_url('user/loginuser/aksi_login') ?>" method="POST">
-                  <?php echo $this->session->flashdata('login_failed'); ?>
-                    <div class="form-group">
-                      <input type="text" class="form-control form-control-user" name="nama" placeholder="Nama Lengkap">
-                    </div>
-                    <div class="form-group">
-                      <input type="number" class="form-control form-control-user" name="nomeja" placeholder="No. Meja">
-                    </div>
-                    <div class="form-group">
-                      <input type="email" class="form-control form-control-user" name="email" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
-                      </div>
-                    </div>
-                    <input type="submit" class="btn btn-primary btn-user btn-block" value="Login">
-                    
-
-                  </form>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <!-- Bootstrap core JavaScript-->
-  <script src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>
-  <script src="<?php echo base_url() ?>assets/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Core plugin JavaScript-->
-  <script src="<?php echo base_url() ?>assets/js/jquery.easing.min.js"></script>
-
-  <!-- Custom scripts for all pages-->
-  <script src="<?php echo base_url() ?>assets/js/sb-admin-2.min.js"></script>
+				<div class="login100-more" style="background-image: url('<?php echo base_url() ?>assets/images/about.jpg');">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="<?php echo base_url() ?>assets/js/jquery-3.2.1.min.js"></script>
+	<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+	<script src="<?php echo base_url() ?>assets/loginuser/main.js"></script>
 
 </body>
-
 </html>
