@@ -4,6 +4,9 @@ $this->load->view("admin/_partials/head.php") ?>
 
   <!-- Page Wrapper -->
   <div id="wrapper">
+    <?php if($this->session->userdata('nama')=='admin'){
+        $this->load->view("admin/_partials/sidebar.php");
+    } ?>
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
