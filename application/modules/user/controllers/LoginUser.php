@@ -8,6 +8,9 @@ class LoginUser extends MX_Controller {
     }
  
     public function index(){
+        if($this->session->userdata('username')){
+			redirect(base_url('user'));
+        }
         $this->load->view("login_user");
     }
 

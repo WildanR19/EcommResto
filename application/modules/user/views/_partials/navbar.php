@@ -13,18 +13,16 @@
 				<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<span class="mr-2 d-none d-lg-inline"><?php echo ucfirst($this->session->userdata('username')); ?></span>
 					
-					<i class="fas fa-user"></i>
+					<ion-icon name="person-outline"></ion-icon>
 				</a>
 				<!-- Dropdown - User Information -->
-				<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+				<div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="userDropdown">
 					<a class="dropdown-item" href="#">
-					<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-					Ganti Meja
+						<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Ganti Meja
 					</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="<?php echo base_url() ?>user/loginuser/logout">
-					<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-					Logout
+					<ion-icon name="log-out-outline"></ion-icon>Logout
 					</a>
 				</div>
 			  </li>
