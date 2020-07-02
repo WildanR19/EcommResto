@@ -35,7 +35,7 @@
 				<div class="col-md-6 ftco-animate">
 					<div class="contact-form">
 						<div class="form-group">
-							<label for="tablenumber" class="text-white">Nama : <?php echo ucfirst($this->session->userdata('username')); ?></label>
+							<label for="tablenumber" class="text-white">Nama : <?php echo ucfirst($this->session->userdata('customer')); ?></label>
 						</div>
 						<div class="form-group">
 							<label for="tablenumber" class="text-white">No.Meja : <?php echo ucfirst($this->session->userdata('nomeja')); ?></label>
