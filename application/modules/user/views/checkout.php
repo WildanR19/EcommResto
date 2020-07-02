@@ -43,8 +43,8 @@
 					</div>
 				</div>
 				<div class="mx-auto">
-					<?= anchor('user/order/clear_cart','Clear Cart',['class'=>'btn btn-danger py-3 px-5']) ?>
-					<?= anchor(base_url('user/menu'),'Continue Shopping',['class'=>'btn btn-info py-3 px-5']) ?>
+					<?= anchor('user/order/clear_cart','Hapus Chart',['class'=>'btn btn-danger py-3 px-5']) ?>
+					<?= anchor(base_url('user/menu'),'Lanjut Pesan',['class'=>'btn btn-info py-3 px-5']) ?>
 					<a id="btCheckout" class="btn btn-success btn-md py-3 px-5 text-white" onclick="getCname();">Selesai Order <i class="fa fa-check"></i></a>
 					
 				</div>

@@ -43,6 +43,9 @@
                       <input type="number" class="form-control form-control-user" name="nomeja" placeholder="No. Meja">
                     </div>
                     <div class="form-group">
+                      <input type="email" class="form-control form-control-user" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
                       <div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>

@@ -14,13 +14,15 @@ class LoginUser extends MX_Controller {
     function aksi_login(){
 		$username = $this->input->post('nama');
         $password = $this->input->post('nomeja');
-        if ($username == "" || $password == "") {
-            $this->session->set_flashdata('login_failed', '<div class="alert alert-danger">Username Atau Password kosong!</div>');
+        $email = $this->input->post('email');
+        if ($username == "" || $password == "" || $email == "") {
+            $this->session->set_flashdata('login_failed', '<div class="alert alert-danger">Username, No.Meja atau Email kosong!</div>');
             redirect(base_url('user/loginuser'));
         }else{
             $session = array(
                 'username' => $username, // Buat session username
-                'nomeja' => $password
+                'nomeja' => $password,
+                'email' => $email
             );
             $this->session->set_userdata($session);
             redirect(base_url("user"));
