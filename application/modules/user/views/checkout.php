@@ -43,9 +43,9 @@
 					</div>
 				</div>
 				<div class="mx-auto">
-					<?= anchor('user/order/clear_cart','Hapus Chart',['class'=>'btn btn-danger py-3 px-5']) ?>
-					<?= anchor(base_url('user/menu'),'Lanjut Pesan',['class'=>'btn btn-info py-3 px-5']) ?>
-					<a id="btCheckout" class="btn btn-success btn-md py-3 px-5 text-white" onclick="getCname();">Selesai Order <i class="fa fa-check"></i></a>
+					<a id="btnDelChart" class="btn btn-danger btn-md py-3 px-5 text-white">Hapus Chart <i class="fas fa-trash-alt"></i></a>
+					<a href="<?php echo base_url('user/menu') ?>" class="btn btn-info btn-md py-3 px-5 text-white">Lanjut Pesan <i class="fas fa-shopping-cart"></i></a>
+					<a id="btCheckout" class="btn btn-success btn-md py-3 px-5 text-white">Selesai Order <i class="fa fa-check"></i></a>
 					
 				</div>
 			</div>
@@ -77,6 +77,23 @@
 			}).then((result) => {
 				if (result.value) {
 					window.location.href = "<?php echo base_url('user/order'); ?>" ;
+				}
+			})
+		});
+		$('#btnDelChart').click(function(e) {
+			e.preventDefault();
+			
+			Swal.fire({
+				title: 'Yakin?',
+				text: "Yakin Menghapus Pesanan ?",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes'
+			}).then((result) => {
+				if (result.value) {
+					window.location.href = "<?php echo base_url('user/order/clear_cart'); ?>" ;
 				}
 			})
 		});

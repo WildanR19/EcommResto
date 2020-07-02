@@ -50,4 +50,22 @@
             });
         });
     });
+
+    $('#logout').click(function(e) {
+			e.preventDefault();
+			
+			Swal.fire({
+				title: 'Yakin?',
+				text: "Yakin Ingin Logout ?",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes'
+			}).then((result) => {
+				if (result.value) {
+					window.location.href = "<?php echo base_url('user/loginuser/logout'); ?>" ;
+				}
+			})
+		});
 </script>

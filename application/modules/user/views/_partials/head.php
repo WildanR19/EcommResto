@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/aos.css'); ?>">
 
     <link rel="stylesheet" href="<?php echo base_url('assets/css/ionicons.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/fontawesome-free/css/all.min.css') ?>">
 
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datepicker.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.timepicker.css'); ?>">
