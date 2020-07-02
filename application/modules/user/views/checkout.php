@@ -33,32 +33,20 @@
 				</div>
 				<div class="col-md-1"></div>
 				<div class="col-md-6 ftco-animate">
-					<form action="<?php echo base_url('user/order') ?>" class="contact-form" method="POST">
+					<div class="contact-form">
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Your Name*" name="cname">
-						</div>
-						<div class="form-group">
-							<label for="tablenumber" class="text-white">Table Number*</label>
-							  <select class="form-control" name="tablenumber">
-								<option selected>Choose...</option>
-									<?php for ($x = 0; $x <= 20; $x++) { ?>
-										<option class="text-dark" value="<?php echo $x ?>"><?php echo $x ?></option>
-									<?php } ?>
-							  </select>
+							<label for="tablenumber" class="text-white">Nama : <?php echo ucfirst($this->session->userdata('username')); ?></label>
 						</div>
 						<div class="form-group">
-							<textarea name="notes" id="" cols="30" rows="6" class="form-control"
-								placeholder="Notes"></textarea>
+							<label for="tablenumber" class="text-white">No.Meja : <?php echo ucfirst($this->session->userdata('nomeja')); ?></label>
 						</div>
-						<div class="small text-muted mb-3">
-							* required fields
-						</div>
-					</form>
+					</div>
 				</div>
 				<div class="mx-auto">
 					<?= anchor('user/order/clear_cart','Clear Cart',['class'=>'btn btn-danger py-3 px-5']) ?>
 					<?= anchor(base_url('user/menu'),'Continue Shopping',['class'=>'btn btn-info py-3 px-5']) ?>
-					<?= anchor('user/order','Check Out',['class'=>'btn btn-success py-3 px-5', 'onclick'=>'success()']) ?>
+					<a id="btCheckout" class="btn btn-success btn-md py-3 px-5 text-white" onclick="getCname();">Selesai Order <i class="fa fa-check"></i></a>
+					
 				</div>
 			</div>
 		</div>
@@ -74,6 +62,25 @@
 	<?php $this->load->view("_partials/modal.php") ?>
 
 	<?php $this->load->view("_partials/js.php") ?>
+	<script>
+		$('#btCheckout').click(function(e) {
+			e.preventDefault();
+			
+			Swal.fire({
+				title: 'Selesai?',
+				text: "Yakin Selesai Mengorder ?",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Yes'
+			}).then((result) => {
+				if (result.value) {
+					window.location.href = "<?php echo base_url('user/order'); ?>" ;
+				}
+			})
+		});
+	</script>
 </body>
 
 </html>

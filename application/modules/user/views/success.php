@@ -22,7 +22,7 @@
 			// Move to a new location or you can do something else
 			window.location.href = "<?php echo base_url() ?>";
 
-		}, 3000);
+		}, 1500);
 	</script>
 
 </body>

@@ -16,6 +16,7 @@
   <script src="<?php echo base_url('assets/js/google-map.js'); ?>"></script>
   <script src="<?php echo base_url('assets/js/main.js'); ?>"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script type="text/javascript">
     $(document).ready(function(){
         $('.add_cart').click(function(){
